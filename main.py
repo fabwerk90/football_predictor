@@ -1,22 +1,30 @@
+import os
+
 from config import CURRENT_SEASON, SEASONS_TO_KEEP
 from getbundesligadata import GetBundesligaData
 from matchpredictor import MatchPredictor
 from teamperformance import TeamPerformance
 from weightscalculator import WeightsCalculator
 
-MATCHDAY = 10
+MATCHDAY = 14
 
 # Initialize the class with the current season
 bundesliga_data = GetBundesligaData(CURRENT_SEASON)
 
 # Get historical results
+results_folder_path = os.path.join(
+    os.path.dirname(__file__), "data/historical_results/"
+)
 historical_df = bundesliga_data.get_historical_results(
-    "data/historical_results/", SEASONS_TO_KEEP
+    results_folder_path, SEASONS_TO_KEEP
 )
 
 # Normalize team names
+teamnames_folder_path = os.path.join(
+    os.path.dirname(__file__), "data/team_translations/team_names_translation.csv"
+)
 normalized_df = bundesliga_data.team_name_normalization(
-    "data/team_translations/team_names_translation.csv", historical_df
+    teamnames_folder_path, historical_df
 )
 
 # Get current season average goals
