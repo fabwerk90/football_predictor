@@ -6,10 +6,32 @@ import requests
 
 
 class GetBundesligaData:
+    """
+    A class to fetch and process Bundesliga data for the current season.
+
+    Attributes:
+        current_season (str): The current season in the format "YYYY/YYYY".
+    """
+
     def __init__(self, current_season):
+        """
+        Initializes the GetBundesligaData class with the current season.
+
+        Args:
+            current_season (str): The current season in the format "YYYY/YYYY".
+        """
         self.current_season = current_season
 
     def custom_read_in(self, csv_file):
+        """
+        Reads in a CSV file containing match data and adds a season column.
+
+        Args:
+            csv_file (str): The path to the CSV file.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing the match data with an added season column.
+        """
         df = pd.read_csv(
             csv_file,
             delimiter=",",
@@ -20,6 +42,12 @@ class GetBundesligaData:
         return df
 
     def get_season_fixtures(self):
+        """
+        Fetches the fixtures for the current season and saves them to a CSV file.
+
+        Returns:
+            str: The path to the saved CSV file.
+        """
         season_identifier = (
             f"bundesliga-{self.current_season[0:4]}-WEuropeStandardTime.csv"
         )
@@ -36,6 +64,9 @@ class GetBundesligaData:
         return filename
 
     def get_new_results(self):
+        """
+        Fetches the latest match results for the current season and saves them to a CSV file.
+        """
         season_identifier = f"{self.current_season[2:4]}{self.current_season[7:9]}"
         output_file = f"{self.current_season[0:4]}_{self.current_season[5:9]}.csv"
         url = f"https://www.football-data.co.uk/mmz4281/{season_identifier}/D1.csv"
@@ -47,6 +78,16 @@ class GetBundesligaData:
                 csv_file.write(response.content)
 
     def get_historical_results(self, path, seasons_to_keep=5):
+        """
+        Fetches and concatenates historical match results from CSV files.
+
+        Args:
+            path (str): The path to the folder containing the historical results CSV files.
+            seasons_to_keep (int): The number of seasons to keep in the concatenated DataFrame.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing the concatenated historical match results.
+        """
         self.get_new_results()
         all_files = glob.glob(os.path.join(path, "*.csv"))
         df_from_each_file = [self.custom_read_in(f) for f in all_files]
@@ -62,6 +103,16 @@ class GetBundesligaData:
         return filtered_df
 
     def team_name_normalization(self, team_names_csv, df):
+        """
+        Normalizes team names in the DataFrame using a translation CSV file.
+
+        Args:
+            team_names_csv (str): The path to the CSV file containing team name translations.
+            df (pd.DataFrame): The DataFrame containing the match data.
+
+        Returns:
+            pd.DataFrame: A DataFrame with normalized team names.
+        """
         team_names = pd.read_csv(team_names_csv, delimiter=";")
         team_names_dict = pd.Series(
             team_names.ger.values, index=team_names.eng
@@ -83,6 +134,15 @@ class GetBundesligaData:
         return normalized_df
 
     def get_current_season_average_goals(self, results_df):
+        """
+        Calculates the average home and away goals for the current season.
+
+        Args:
+            results_df (pd.DataFrame): The DataFrame containing the match results.
+
+        Returns:
+            dict: A dictionary containing the average home and away goals for the current season.
+        """
         results_df = results_df[results_df["season"] == self.current_season]
         season_goals = results_df.groupby("season")[["home_goals", "away_goals"]].sum()
         n_played_matches = results_df.shape[0]
@@ -100,6 +160,15 @@ class GetBundesligaData:
         }
 
     def get_season_schedule(self, fixtures_data_csv):
+        """
+        Fetches and processes the season schedule from a fixtures CSV file.
+
+        Args:
+            fixtures_data_csv (str): The path to the CSV file containing the fixtures data.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing the processed season schedule.
+        """
         fixtures_all_cols = pd.read_csv(fixtures_data_csv, delimiter=",")
         replacements = {
             "VfL Bochum 1848": "VfL Bochum",
