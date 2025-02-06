@@ -99,41 +99,41 @@ Match Number,Round Number,Date,Location,Home Team,Away Team,Result
 91,11,24/11/2024 15:30,Holstein-Stadion,Holstein Kiel,1. FSV Mainz 05,0 - 3
 92,11,24/11/2024 17:30,Borussia-Park,Borussia Mönchengladbach,FC St. Pauli,2 - 0
 100,12,29/11/2024 20:30,Millerntor-Stadion,FC St. Pauli,Holstein Kiel,3 - 1
-101,12,30/11/2024 15:30,An der Alten Försterei,1. FC Union Berlin,Bayer 04 Leverkusen,
-103,12,30/11/2024 15:30,WWK Arena,FC Augsburg,VfL Bochum 1848,
-104,12,30/11/2024 15:30,Europa-Park Stadion,SC Freiburg,Borussia Mönchengladbach,
-105,12,30/11/2024 15:30,Weser-Stadion,SV Werder Bremen,VfB Stuttgart,
-108,12,30/11/2024 15:30,Red Bull Arena,RB Leipzig,VfL Wolfsburg,
-107,12,30/11/2024 18:30,Signal Iduna Park,Borussia Dortmund,FC Bayern München,
-102,12,01/12/2024 15:30,Mewa Arena,1. FSV Mainz 05,TSG Hoffenheim,
-106,12,01/12/2024 17:30,Voith-Arena,1. FC Heidenheim 1846,Eintracht Frankfurt,
-116,13,06/12/2024 20:30,MHPArena,VfB Stuttgart,1. FC Union Berlin,
-109,13,07/12/2024 15:30,Holstein-Stadion,Holstein Kiel,RB Leipzig,
-110,13,07/12/2024 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,SV Werder Bremen,
-114,13,07/12/2024 15:30,Deutsche Bank Park,Eintracht Frankfurt,FC Augsburg,
-115,13,07/12/2024 15:30,Allianz Arena,FC Bayern München,1. FC Heidenheim 1846,
-117,13,07/12/2024 15:30,BayArena,Bayer 04 Leverkusen,FC St. Pauli,
-111,13,07/12/2024 18:30,Borussia-Park,Borussia Mönchengladbach,Borussia Dortmund,
-112,13,08/12/2024 15:30,Volkswagen Arena,VfL Wolfsburg,1. FSV Mainz 05,
-113,13,08/12/2024 17:30,PreZero Arena,TSG Hoffenheim,SC Freiburg,
-123,14,13/12/2024 20:30,Europa-Park Stadion,SC Freiburg,VfL Wolfsburg,
-119,14,14/12/2024 15:30,An der Alten Försterei,1. FC Union Berlin,VfL Bochum 1848,
-120,14,14/12/2024 15:30,Borussia-Park,Borussia Mönchengladbach,Holstein Kiel,
-121,14,14/12/2024 15:30,Mewa Arena,1. FSV Mainz 05,FC Bayern München,
-122,14,14/12/2024 15:30,WWK Arena,FC Augsburg,Bayer 04 Leverkusen,
-125,14,14/12/2024 15:30,Signal Iduna Park,Borussia Dortmund,TSG Hoffenheim,
-118,14,14/12/2024 18:30,Millerntor-Stadion,FC St. Pauli,SV Werder Bremen,
-124,14,15/12/2024 15:30,Voith-Arena,1. FC Heidenheim 1846,VfB Stuttgart,
-126,14,15/12/2024 19:30,Red Bull Arena,RB Leipzig,Eintracht Frankfurt,
-133,15,20/12/2024 20:30,Allianz Arena,FC Bayern München,RB Leipzig,
-127,15,21/12/2024 15:30,Holstein-Stadion,Holstein Kiel,FC Augsburg,
-130,15,21/12/2024 15:30,Weser-Stadion,SV Werder Bremen,1. FC Union Berlin,
-131,15,21/12/2024 15:30,PreZero Arena,TSG Hoffenheim,Borussia Mönchengladbach,
-132,15,21/12/2024 15:30,Deutsche Bank Park,Eintracht Frankfurt,1. FSV Mainz 05,
-134,15,21/12/2024 15:30,MHPArena,VfB Stuttgart,FC St. Pauli,
-135,15,21/12/2024 18:30,BayArena,Bayer 04 Leverkusen,SC Freiburg,
-128,15,22/12/2024 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,1. FC Heidenheim 1846,
-129,15,22/12/2024 17:30,Volkswagen Arena,VfL Wolfsburg,Borussia Dortmund,
+101,12,30/11/2024 15:30,An der Alten Försterei,1. FC Union Berlin,Bayer 04 Leverkusen,1 - 2
+103,12,30/11/2024 15:30,WWK Arena,FC Augsburg,VfL Bochum 1848,1 - 0
+104,12,30/11/2024 15:30,Europa-Park Stadion,SC Freiburg,Borussia Mönchengladbach,3 - 1
+105,12,30/11/2024 15:30,Weser-Stadion,SV Werder Bremen,VfB Stuttgart,2 - 2
+108,12,30/11/2024 15:30,Red Bull Arena,RB Leipzig,VfL Wolfsburg,1 - 5
+107,12,30/11/2024 18:30,Signal Iduna Park,Borussia Dortmund,FC Bayern München,1 - 1
+102,12,01/12/2024 15:30,Mewa Arena,1. FSV Mainz 05,TSG Hoffenheim,2 - 0
+106,12,01/12/2024 17:30,Voith-Arena,1. FC Heidenheim 1846,Eintracht Frankfurt,0 - 4
+116,13,06/12/2024 20:30,MHPArena,VfB Stuttgart,1. FC Union Berlin,3 - 2
+109,13,07/12/2024 15:30,Holstein-Stadion,Holstein Kiel,RB Leipzig,0 - 2
+110,13,07/12/2024 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,SV Werder Bremen,0 - 1
+114,13,07/12/2024 15:30,Deutsche Bank Park,Eintracht Frankfurt,FC Augsburg,2 - 2
+115,13,07/12/2024 15:30,Allianz Arena,FC Bayern München,1. FC Heidenheim 1846,4 - 2
+117,13,07/12/2024 15:30,BayArena,Bayer 04 Leverkusen,FC St. Pauli,2 - 1
+111,13,07/12/2024 18:30,Borussia-Park,Borussia Mönchengladbach,Borussia Dortmund,1 - 1
+112,13,08/12/2024 15:30,Volkswagen Arena,VfL Wolfsburg,1. FSV Mainz 05,4 - 3
+113,13,08/12/2024 17:30,PreZero Arena,TSG Hoffenheim,SC Freiburg,1 - 1
+123,14,13/12/2024 20:30,Europa-Park Stadion,SC Freiburg,VfL Wolfsburg,3 - 2
+119,14,14/12/2024 15:30,An der Alten Försterei,1. FC Union Berlin,VfL Bochum 1848,1 - 1
+120,14,14/12/2024 15:30,Borussia-Park,Borussia Mönchengladbach,Holstein Kiel,4 - 1
+121,14,14/12/2024 15:30,Mewa Arena,1. FSV Mainz 05,FC Bayern München,2 - 1
+122,14,14/12/2024 15:30,WWK Arena,FC Augsburg,Bayer 04 Leverkusen,0 - 2
+118,14,14/12/2024 18:30,Millerntor-Stadion,FC St. Pauli,SV Werder Bremen,0 - 2
+124,14,15/12/2024 15:30,Voith-Arena,1. FC Heidenheim 1846,VfB Stuttgart,1 - 3
+125,14,15/12/2024 17:30,Signal Iduna Park,Borussia Dortmund,TSG Hoffenheim,1 - 1
+126,14,15/12/2024 19:30,Red Bull Arena,RB Leipzig,Eintracht Frankfurt,2 - 1
+133,15,20/12/2024 20:30,Allianz Arena,FC Bayern München,RB Leipzig,5 - 1
+127,15,21/12/2024 15:30,Holstein-Stadion,Holstein Kiel,FC Augsburg,5 - 1
+130,15,21/12/2024 15:30,Weser-Stadion,SV Werder Bremen,1. FC Union Berlin,4 - 1
+131,15,21/12/2024 15:30,PreZero Arena,TSG Hoffenheim,Borussia Mönchengladbach,1 - 2
+132,15,21/12/2024 15:30,Deutsche Bank Park,Eintracht Frankfurt,1. FSV Mainz 05,1 - 3
+134,15,21/12/2024 15:30,MHPArena,VfB Stuttgart,FC St. Pauli,0 - 1
+135,15,21/12/2024 18:30,BayArena,Bayer 04 Leverkusen,SC Freiburg,5 - 1
+128,15,22/12/2024 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,1. FC Heidenheim 1846,2 - 0
+129,15,22/12/2024 17:30,Volkswagen Arena,VfL Wolfsburg,Borussia Dortmund,1 - 3
 143,16,10/01/2025 20:30,Signal Iduna Park,Borussia Dortmund,Bayer 04 Leverkusen,
 136,16,11/01/2025 15:30,Millerntor-Stadion,FC St. Pauli,Eintracht Frankfurt,
 138,16,11/01/2025 15:30,Mewa Arena,1. FSV Mainz 05,VfL Bochum 1848,
@@ -170,51 +170,51 @@ Match Number,Round Number,Date,Location,Home Team,Away Team,Result
 164,19,25/01/2025 18:30,Borussia-Park,Borussia Mönchengladbach,VfL Bochum 1848,
 169,19,26/01/2025 15:30,PreZero Arena,TSG Hoffenheim,Eintracht Frankfurt,
 163,19,26/01/2025 17:30,Millerntor-Stadion,FC St. Pauli,1. FC Union Berlin,
+175,20,31/01/2025 20:30,Weser-Stadion,SV Werder Bremen,1. FSV Mainz 05,
 172,20,01/02/2025 15:30,Millerntor-Stadion,FC St. Pauli,FC Augsburg,
 173,20,01/02/2025 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,SC Freiburg,
-174,20,01/02/2025 15:30,An der Alten Försterei,1. FC Union Berlin,RB Leipzig,
-175,20,01/02/2025 15:30,Weser-Stadion,SV Werder Bremen,1. FSV Mainz 05,
 176,20,01/02/2025 15:30,Voith-Arena,1. FC Heidenheim 1846,Borussia Dortmund,
-177,20,01/02/2025 15:30,Deutsche Bank Park,Eintracht Frankfurt,VfL Wolfsburg,
 178,20,01/02/2025 15:30,Allianz Arena,FC Bayern München,Holstein Kiel,
 179,20,01/02/2025 15:30,MHPArena,VfB Stuttgart,Borussia Mönchengladbach,
-180,20,01/02/2025 15:30,BayArena,Bayer 04 Leverkusen,TSG Hoffenheim,
-181,21,08/02/2025 15:30,Holstein-Stadion,Holstein Kiel,VfL Bochum 1848,
-182,21,08/02/2025 15:30,Borussia-Park,Borussia Mönchengladbach,Eintracht Frankfurt,
+174,20,01/02/2025 18:30,An der Alten Försterei,1. FC Union Berlin,RB Leipzig,
+177,20,02/02/2025 15:30,Deutsche Bank Park,Eintracht Frankfurt,VfL Wolfsburg,
+180,20,02/02/2025 17:30,BayArena,Bayer 04 Leverkusen,TSG Hoffenheim,
+189,21,07/02/2025 20:30,Allianz Arena,FC Bayern München,SV Werder Bremen,
 183,21,08/02/2025 15:30,Mewa Arena,1. FSV Mainz 05,FC Augsburg,
 184,21,08/02/2025 15:30,Volkswagen Arena,VfL Wolfsburg,Bayer 04 Leverkusen,
 185,21,08/02/2025 15:30,Europa-Park Stadion,SC Freiburg,1. FC Heidenheim 1846,
 186,21,08/02/2025 15:30,PreZero Arena,TSG Hoffenheim,1. FC Union Berlin,
 187,21,08/02/2025 15:30,Signal Iduna Park,Borussia Dortmund,VfB Stuttgart,
-188,21,08/02/2025 15:30,Red Bull Arena,RB Leipzig,FC St. Pauli,
-189,21,08/02/2025 15:30,Allianz Arena,FC Bayern München,SV Werder Bremen,
+182,21,08/02/2025 18:30,Borussia-Park,Borussia Mönchengladbach,Eintracht Frankfurt,
+181,21,09/02/2025 15:30,Holstein-Stadion,Holstein Kiel,VfL Bochum 1848,
+188,21,09/02/2025 17:30,Red Bull Arena,RB Leipzig,FC St. Pauli,
+193,22,14/02/2025 20:30,WWK Arena,FC Augsburg,RB Leipzig,
 190,22,15/02/2025 15:30,Millerntor-Stadion,FC St. Pauli,SC Freiburg,
 191,22,15/02/2025 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,Borussia Dortmund,
 192,22,15/02/2025 15:30,An der Alten Försterei,1. FC Union Berlin,Borussia Mönchengladbach,
-193,22,15/02/2025 15:30,WWK Arena,FC Augsburg,RB Leipzig,
-194,22,15/02/2025 15:30,Weser-Stadion,SV Werder Bremen,TSG Hoffenheim,
-195,22,15/02/2025 15:30,Voith-Arena,1. FC Heidenheim 1846,1. FSV Mainz 05,
-196,22,15/02/2025 15:30,Deutsche Bank Park,Eintracht Frankfurt,Holstein Kiel,
 197,22,15/02/2025 15:30,MHPArena,VfB Stuttgart,VfL Wolfsburg,
-198,22,15/02/2025 15:30,BayArena,Bayer 04 Leverkusen,FC Bayern München,
+198,22,15/02/2025 18:30,BayArena,Bayer 04 Leverkusen,FC Bayern München,
+194,22,16/02/2025 15:30,Weser-Stadion,SV Werder Bremen,TSG Hoffenheim,
+196,22,16/02/2025 17:30,Deutsche Bank Park,Eintracht Frankfurt,Holstein Kiel,
+195,22,16/02/2025 19:30,Voith-Arena,1. FC Heidenheim 1846,1. FSV Mainz 05,
+203,23,21/02/2025 20:30,Europa-Park Stadion,SC Freiburg,SV Werder Bremen,
 199,23,22/02/2025 15:30,Holstein-Stadion,Holstein Kiel,Bayer 04 Leverkusen,
 200,23,22/02/2025 15:30,Borussia-Park,Borussia Mönchengladbach,FC Augsburg,
 201,23,22/02/2025 15:30,Mewa Arena,1. FSV Mainz 05,FC St. Pauli,
 202,23,22/02/2025 15:30,Volkswagen Arena,VfL Wolfsburg,VfL Bochum 1848,
-203,23,22/02/2025 15:30,Europa-Park Stadion,SC Freiburg,SV Werder Bremen,
-204,23,22/02/2025 15:30,PreZero Arena,TSG Hoffenheim,VfB Stuttgart,
-205,23,22/02/2025 15:30,Signal Iduna Park,Borussia Dortmund,1. FC Union Berlin,
-206,23,22/02/2025 15:30,Red Bull Arena,RB Leipzig,1. FC Heidenheim 1846,
-207,23,22/02/2025 15:30,Allianz Arena,FC Bayern München,Eintracht Frankfurt,
+205,23,22/02/2025 18:30,Signal Iduna Park,Borussia Dortmund,1. FC Union Berlin,
+206,23,23/02/2025 15:30,Red Bull Arena,RB Leipzig,1. FC Heidenheim 1846,
+207,23,23/02/2025 17:30,Allianz Arena,FC Bayern München,Eintracht Frankfurt,
+204,23,23/02/2025 19:30,PreZero Arena,TSG Hoffenheim,VfB Stuttgart,
+216,24,28/02/2025 20:30,MHPArena,VfB Stuttgart,FC Bayern München,
 208,24,01/03/2025 15:30,Millerntor-Stadion,FC St. Pauli,Borussia Dortmund,
 209,24,01/03/2025 15:30,Vonovia Ruhrstadion,VfL Bochum 1848,TSG Hoffenheim,
-210,24,01/03/2025 15:30,An der Alten Försterei,1. FC Union Berlin,Holstein Kiel,
-211,24,01/03/2025 15:30,WWK Arena,FC Augsburg,SC Freiburg,
 212,24,01/03/2025 15:30,Weser-Stadion,SV Werder Bremen,VfL Wolfsburg,
 213,24,01/03/2025 15:30,Voith-Arena,1. FC Heidenheim 1846,Borussia Mönchengladbach,
-214,24,01/03/2025 15:30,Deutsche Bank Park,Eintracht Frankfurt,Bayer 04 Leverkusen,
 215,24,01/03/2025 15:30,Red Bull Arena,RB Leipzig,1. FSV Mainz 05,
-216,24,01/03/2025 15:30,MHPArena,VfB Stuttgart,FC Bayern München,
+214,24,01/03/2025 18:30,Deutsche Bank Park,Eintracht Frankfurt,Bayer 04 Leverkusen,
+210,24,02/03/2025 15:30,An der Alten Försterei,1. FC Union Berlin,Holstein Kiel,
+211,24,02/03/2025 17:30,WWK Arena,FC Augsburg,SC Freiburg,
 217,25,08/03/2025 15:30,Holstein-Stadion,Holstein Kiel,VfB Stuttgart,
 218,25,08/03/2025 15:30,Borussia-Park,Borussia Mönchengladbach,1. FSV Mainz 05,
 219,25,08/03/2025 15:30,Volkswagen Arena,VfL Wolfsburg,FC St. Pauli,
