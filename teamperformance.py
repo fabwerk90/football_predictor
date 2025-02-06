@@ -2,16 +2,49 @@ import pandas as pd
 
 
 class TeamPerformance:
+    """
+    A class to calculate and normalize team performance metrics based on historical match data.
+
+    Attributes:
+        weighted_df (pd.DataFrame): DataFrame containing weighted historical match data.
+    """
+
     def __init__(self, weighted_df):
+        """
+        Initializes the TeamPerformance class with weighted historical match data.
+
+        Args:
+            weighted_df (pd.DataFrame): DataFrame containing weighted historical match data.
+        """
         self.weighted_df = weighted_df
 
     @staticmethod
     def compute_weighted_average(group, column_name, weight_column):
+        """
+        Computes the weighted average of a specified column in a group.
+
+        Args:
+            group (pd.DataFrame): DataFrame group.
+            column_name (str): The name of the column for which to compute the weighted average.
+            weight_column (str): The name of the column containing the weights.
+
+        Returns:
+            float: The weighted average of the specified column.
+        """
         return (group[column_name] * group[weight_column]).sum() / group[
             weight_column
         ].sum()
 
     def calculate_performance(self, home=True):
+        """
+        Calculates the performance metrics for teams based on historical match data.
+
+        Args:
+            home (bool): If True, calculates home performance metrics; otherwise, calculates away performance metrics.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing the performance metrics for each team.
+        """
         team_performance = self.weighted_df[
             [
                 "season",
@@ -60,6 +93,16 @@ class TeamPerformance:
         )
 
     def team_performance_normalization(self, home_performance, away_performance):
+        """
+        Normalizes the performance metrics for teams based on league averages.
+
+        Args:
+            home_performance (pd.DataFrame): DataFrame containing home performance metrics for each team.
+            away_performance (pd.DataFrame): DataFrame containing away performance metrics for each team.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing the normalized performance metrics for each team.
+        """
         overall_performance = pd.merge(home_performance, away_performance, on="team")
 
         league_home_scored = home_performance["scored_wa"].mean()
