@@ -6,7 +6,7 @@ from matchpredictor import MatchPredictor
 from teamperformance import TeamPerformance
 from weightscalculator import WeightsCalculator
 
-MATCHDAY = 21
+MATCHDAY = 22
 
 # Initialize the class with the current season
 bundesliga_data = GetBundesligaData(CURRENT_SEASON)
@@ -46,7 +46,7 @@ season_schedule = bundesliga_data.get_season_schedule(season_fixtures_csv)
 ##############
 
 weights_calculator = WeightsCalculator(normalized_df)
-weighted_df = weights_calculator.get_weights("matchday", -0.025)
+weighted_df = weights_calculator.get_weights("matchday", 0.005)
 
 
 #############
