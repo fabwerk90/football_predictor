@@ -46,7 +46,7 @@ season_schedule = bundesliga_data.get_season_schedule(season_fixtures_csv)
 ##############
 
 weights_calculator = WeightsCalculator(normalized_df)
-weighted_df = weights_calculator.get_weights("matchday", 0.005)
+weighted_df = weights_calculator.get_weights("matchday", 0.1)
 
 
 #############
