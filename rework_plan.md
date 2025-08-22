@@ -85,6 +85,7 @@ $$
 - In Python: Gewichtung bei Likelihood-Berechnung oder im GLM (gewichtete Regression).
 
 # ToDos
-1. Baue das grundlegende Prognosemodell in Python, die Daten dafür findest du im "data"-Folder unter "fixtures" und "results" und dann im subfolder "clean"
-2. ergänze in einer weiteren Python Datei die optionalen Erweiterungen
-3. schreibe den gesamten code so einfach wie möglich und bleibe absolut minimalistisch - schreibe keinen bloated Code!
+1. Baue das grundlegende Prognosemodell in Python wie oben beschrieben. Die Daten dafür findest du im "data"-Folder unter "fixtures" und "results" und dann im subfolder "clean"
+2. Das grundlegende Modell sollte immer den nächsten Spieltag prognostizieren, jetzt gerade wäre es initial der ersten Spieltag
+3. Bau das Modell aus, indem du in einer weiteren Python Datei die optionalen Erweiterungen aufbauend auf dem basis-Modell einpflegst
+4. schreibe den gesamten code so einfach wie möglich und bleibe absolut minimalistisch - schreibe keinen bloated Code!
