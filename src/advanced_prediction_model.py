@@ -33,15 +33,40 @@ class AdvancedFootballPredictor:
         self.results_df = pd.read_parquet(results_path)
         self.fixtures_df = pd.read_parquet(fixtures_path)
 
-        # Convert date columns to datetime
-        self.results_df["date"] = pd.to_datetime(self.results_df["date"])
+        # Convert date columns to timezone-aware datetimes (UTC) to avoid
+        # tz-naive vs tz-aware arithmetic errors later on.
+        # If fixtures do not have a date column, skip safely.
+        self.results_df["date"] = pd.to_datetime(self.results_df["date"], utc=True)
+        if "date" in self.fixtures_df.columns:
+            self.fixtures_df["date"] = pd.to_datetime(
+                self.fixtures_df["date"], utc=True
+            )
 
         return self.results_df, self.fixtures_df
 
     def calculate_time_weights(self, reference_date: datetime = None):
         """Calculate time-based weights for historical matches."""
+        # Ensure reference_date is a pandas Timestamp with a timezone that
+        # matches the stored match dates so subtraction works correctly.
         if reference_date is None:
-            reference_date = datetime.now()
+            # prefer timezone from stored dates if available
+            tz = None
+            if hasattr(self, "results_df") and "date" in self.results_df.columns:
+                tz = self.results_df["date"].dt.tz
+            if tz is not None:
+                reference_date = pd.Timestamp.now(tz=tz)
+            else:
+                reference_date = pd.Timestamp.now(tz="UTC")
+        else:
+            reference_date = pd.Timestamp(reference_date)
+            # If stored dates are tz-aware but reference_date is naive, localize it
+            if (
+                hasattr(self, "results_df")
+                and "date" in self.results_df.columns
+                and self.results_df["date"].dt.tz is not None
+                and reference_date.tzinfo is None
+            ):
+                reference_date = reference_date.tz_localize("UTC")
 
         # Calculate days since each match
         days_since = (reference_date - self.results_df["date"]).dt.days
@@ -278,20 +303,49 @@ class AdvancedFootballPredictor:
                     draw_prob += prob
                 else:
                     away_win_prob += prob
+        # Round numeric prediction outputs to two decimal places
+        lambda_home_rounded = round(lambda_home, 2)
+        lambda_away_rounded = round(lambda_away, 2)
+        home_win_prob_rounded = round(home_win_prob, 2)
+        draw_prob_rounded = round(draw_prob, 2)
+        away_win_prob_rounded = round(away_win_prob, 2)
+        most_likely_prob_rounded = round(most_likely_prob, 2)
 
         return {
             "home_team": home_team,
             "away_team": away_team,
-            "expected_home_goals": lambda_home,
-            "expected_away_goals": lambda_away,
-            "home_win_probability": home_win_prob,
-            "draw_probability": draw_prob,
-            "away_win_probability": away_win_prob,
+            "expected_home_goals": lambda_home_rounded,
+            "expected_away_goals": lambda_away_rounded,
+            "home_win_probability": home_win_prob_rounded,
+            "draw_probability": draw_prob_rounded,
+            "away_win_probability": away_win_prob_rounded,
             "most_likely_result": most_likely_result,
-            "most_likely_probability": most_likely_prob,
+            "most_likely_probability": most_likely_prob_rounded,
             "dixon_coles_rho": self.rho,
             "time_weighted": True,
         }
+
+    def get_next_matchday(self) -> int:
+        """
+        Determine the next matchday to predict based on fixtures data.
+
+        Returns:
+            The next unplayed matchday number
+        """
+        # Find matchdays that haven't been completed yet
+        for matchday in sorted(self.fixtures_df["match_day"].unique()):
+            matchday_fixtures = self.fixtures_df[
+                self.fixtures_df["match_day"] == matchday
+            ]
+            # If no matches in this matchday are finished, it's the next one to predict
+            if not matchday_fixtures["is_finished"].any():
+                print(f"Next unplayed matchday found: {matchday}")
+                return matchday
+
+        # If all matchdays are finished, return the last one
+        last_matchday = self.fixtures_df["match_day"].max()
+        print(f"All matchdays completed. Using last matchday: {last_matchday}")
+        return last_matchday
 
     def predict_matchday(self, matchday: int) -> List[Dict]:
         """Predict all matches for a specific matchday."""
@@ -340,6 +394,8 @@ class AdvancedFootballPredictor:
             predictions_df = pd.DataFrame(simplified_predictions)
             predictions_df.to_csv(filename, index=False)
             print(f"\nSimplified predictions saved to: {filename}")
+        else:
+            print(f"\nNo predictions to save to: {filename}")
 
 
 def main():
@@ -350,9 +406,9 @@ def main():
     # Initialize predictor
     predictor = AdvancedFootballPredictor(xi=0.0054)  # Standard time decay
 
-    # Load data
-    results_path = "data/results/clean/historical_results.parquet"
-    fixtures_path = "data/fixtures/clean/2025_2026_season_schedule.parquet"
+    # Load data (updated paths - no /clean/ subdirectory)
+    results_path = "../data/results/historical_results.parquet"
+    fixtures_path = "../data/fixtures/2025_2026_season_schedule.parquet"
 
     print("\nLoading data...")
     results_df, fixtures_df = predictor.load_data(results_path, fixtures_path)
@@ -365,12 +421,18 @@ def main():
     # Estimate Dixon-Coles parameter
     predictor.estimate_dixon_coles_rho()
 
-    # Predict matchday 1
-    predictions = predictor.predict_matchday(matchday=1)
+    # Dynamically determine the next matchday to predict
+    next_matchday = predictor.get_next_matchday()
+
+    # Predict the next matchday
+    predictions = predictor.predict_matchday(matchday=next_matchday)
 
     # Display and save predictions
     predictor.print_predictions(predictions)
-    predictor.save_predictions(predictions, "matchday_1_predictions_advanced.csv")
+
+    # Use dynamic filename with matchday number
+    output_filename = f"matchday_{next_matchday}_predictions_advanced.csv"
+    predictor.save_predictions(predictions, output_filename)
 
     print("\nAdvanced prediction model completed successfully!")
 

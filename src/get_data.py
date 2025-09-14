@@ -4,18 +4,19 @@ from pathlib import Path
 import httpx
 
 
-class BundesligaDataDownloader:
-    """Simple downloader for Bundesliga results and fixtures."""
+class OpenLigaDBDownloader:
+    """Downloader for Bundesliga data from OpenLigaDB API."""
 
     def __init__(self):
         """Initialize with basic directory structure."""
-        self.data_dir = Path("data")
-        self.results_dir = self.data_dir / "results/raw"
-        self.fixtures_dir = self.data_dir / "fixtures/raw"
+        project_root = Path(__file__).resolve().parent.parent
+        self.data_dir = project_root / "data"
+        self.raw_data_dir = self.data_dir / "raw"
+        self.base_url = "https://api.openligadb.de"
 
-    def download_results(self, season: str) -> bool:
+    def download_season_data(self, season: str) -> bool:
         """
-        Download match results for a season.
+        Download all match data for a season (both fixtures and results).
 
         Args:
             season: Season in format "YYYY/YYYY" (e.g., "2023/2024")
@@ -23,38 +24,33 @@ class BundesligaDataDownloader:
         Returns:
             bool: True if successful
         """
-        start_year, end_year = season.split("/")
-        short_season = f"{start_year[2:]}{end_year[2:]}"  # "2324"
-
-        url = f"https://www.football-data.co.uk/mmz4281/{short_season}/D1.csv"
-        output_path = self.results_dir / f"{season.replace('/', '_')}_results.csv"
-
-        return self._download_file(url, output_path)
-
-    def download_fixtures(self, season: str) -> bool:
-        """
-        Download fixtures for a season.
-
-        Args:
-            season: Season in format "YYYY/YYYY" (e.g., "2023/2024")
-
-        Returns:
-            bool: True if successful
-        """
+        # Extract the start year from the season string
         start_year = season.split("/")[0]
-        url = f"https://fixturedownload.com/download/bundesliga-{start_year}-WEuropeStandardTime.csv"
-        output_path = self.fixtures_dir / f"{season.replace('/', '_')}_fixtures.csv"
 
-        return self._download_file(url, output_path)
+        # OpenLigaDB uses the start year to identify the season
+        url = f"{self.base_url}/getmatchdata/bl1/{start_year}"
+        output_path = self.raw_data_dir / f"{season.replace('/', '_')}_matches.json"
 
-    def _download_file(self, url: str, output_path: Path) -> bool:
-        """Download a file from URL and save it."""
+        return self._download_json(url, output_path)
+
+    def _download_json(self, url: str, output_path: Path) -> bool:
+        """Download JSON data from URL and save it."""
         try:
-            response = httpx.get(url)
+            # Use a reasonable timeout so the call fails fast on network issues
+            response = httpx.get(url, timeout=15.0)
             response.raise_for_status()
 
-            output_path.write_bytes(response.content)
-            print(f"Downloaded: {output_path}")
+            # Parse JSON to validate it
+            data = response.json()
+
+            # Ensure the target directory exists before writing
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+
+            # Save as formatted JSON
+            with open(output_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+
+            print(f"Downloaded {len(data)} matches for season: {output_path}")
             return True
 
         except Exception as e:
@@ -64,22 +60,26 @@ class BundesligaDataDownloader:
 
 def main():
     """Download data for current and recent seasons."""
-    downloader = BundesligaDataDownloader()
+    downloader = OpenLigaDBDownloader()
 
-    # Download last few seasons
     # Load seasons from config.json
     config_path = Path("config.json")
     with open(config_path, "r") as f:
         config = json.load(f)
 
     current_season = config.get("current_season", "")
-    historical_results = config.get("history_list", [])
+    historical_seasons = config.get("history_list", [])
 
-    downloader.download_fixtures(current_season)
+    # Download data for all seasons (both historical and current)
+    all_seasons = set(historical_seasons)
+    if current_season:
+        all_seasons.add(current_season)
 
-    for season in historical_results:
+    for season in sorted(all_seasons):
         print(f"Downloading data for {season}...")
-        downloader.download_results(season)
+        success = downloader.download_season_data(season)
+        if not success:
+            print(f"Failed to download data for {season}")
 
 
 if __name__ == "__main__":
