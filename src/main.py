@@ -8,7 +8,7 @@ from process_match_data import main as process_data
 
 
 def main():
-    """Run the complete football prediction pipeline."""
+    """Run the complete football prediction pipeline and save outputs."""
     print("Football Predictor - Starting pipeline...")
 
     print("\n1. Downloading data...")
